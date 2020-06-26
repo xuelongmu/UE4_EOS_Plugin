@@ -85,6 +85,8 @@ EOSBasic/.vscode/
 *.sdf
 *.VC.db
 *.VC.opendb
+EOSBasic/.idea/
+
 
 # Binary Files
 EOSBasic/Binaries/*

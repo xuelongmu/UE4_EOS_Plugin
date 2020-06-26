@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "eos_auth_types.h"
+#include "eos_connect_types.h"
 #include "GameFramework/PlayerController.h"
 #include "BasicPlayerController.generated.h"
 
@@ -17,6 +19,9 @@ class EOSBASIC_API ABasicPlayerController : public APlayerController
 public:
 
 	UFUNCTION( BlueprintCallable, Category = "EOS Basic")
-		bool						RequestLogin( FString Id, FString Token, FString Type );
+	bool RequestLogin( FString Id, FString Token, FString Type );
+
+	UFUNCTION( BlueprintCallable, Category = "EOS Basic")
+	static bool RequestLogout( );
 
 };

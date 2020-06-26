@@ -25,6 +25,10 @@
 		{
 			"Name": "SteamVR",
 			"Enabled": false
+		},
+		{
+			"Name": "RiderLink",
+			"Enabled": true
 		}
 	]
 }

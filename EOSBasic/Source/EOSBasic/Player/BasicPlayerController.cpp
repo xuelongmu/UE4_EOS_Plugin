@@ -9,10 +9,11 @@
 #include "Interfaces/OnlineIdentityInterface.h"
 
 // EOS Plugin Includes
+#include "eos_auth.h"
 #include "OnlineSubsystemEOS.h"
 
 
-bool ABasicPlayerController::RequestLogin( FString Id, FString Token, FString Type )
+bool ABasicPlayerController::RequestLogin(FString Id, FString Token, FString Type )
 {
 	IOnlineSubsystem* SubSystem = IOnlineSubsystem::Get( EOS_SUBSYSTEM );
 
@@ -29,3 +30,22 @@ bool ABasicPlayerController::RequestLogin( FString Id, FString Token, FString Ty
 
 	return false;
 }
+
+bool ABasicPlayerController::RequestLogout()
+{
+	IOnlineSubsystem* SubSystem = IOnlineSubsystem::Get( EOS_SUBSYSTEM );
+
+	if( SubSystem != nullptr )
+	{
+		IOnlineIdentityPtr OnlineIdentity = SubSystem->GetIdentityInterface();
+
+		if( OnlineIdentity != nullptr )
+		{
+			// Assume we are logging out local user num 0
+			return OnlineIdentity->Logout(0);
+		}
+	}
+	return false;
+}
+
+
